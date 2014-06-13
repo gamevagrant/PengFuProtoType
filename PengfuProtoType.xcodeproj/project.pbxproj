@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B881258194B028300FB16E2 /* TXPostsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B881257194B028300FB16E2 /* TXPostsData.m */; };
+		7BB03A0A194AA2AC00F6189A /* TXContentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB03A09194AA2AC00F6189A /* TXContentData.m */; };
+		7BBB272A1949543E00FF421A /* TXMainListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB27291949543E00FF421A /* TXMainListTableViewController.m */; };
+		7BBB272D194956F400FF421A /* TXMainListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB272C194956F400FF421A /* TXMainListTableViewCell.m */; };
 		7BF3623D1946BFB200FE539B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF3623C1946BFB200FE539B /* Foundation.framework */; };
 		7BF3623F1946BFB200FE539B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF3623E1946BFB200FE539B /* CoreGraphics.framework */; };
 		7BF362411946BFB200FE539B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF362401946BFB200FE539B /* UIKit.framework */; };
@@ -34,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B881256194B028300FB16E2 /* TXPostsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXPostsData.h; sourceTree = "<group>"; };
+		7B881257194B028300FB16E2 /* TXPostsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXPostsData.m; sourceTree = "<group>"; };
+		7BB03A08194AA2AC00F6189A /* TXContentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXContentData.h; sourceTree = "<group>"; };
+		7BB03A09194AA2AC00F6189A /* TXContentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXContentData.m; sourceTree = "<group>"; };
+		7BBB27281949543E00FF421A /* TXMainListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMainListTableViewController.h; sourceTree = "<group>"; };
+		7BBB27291949543E00FF421A /* TXMainListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMainListTableViewController.m; sourceTree = "<group>"; };
+		7BBB272B194956F400FF421A /* TXMainListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXMainListTableViewCell.h; path = ../TXMainListTableViewCell.h; sourceTree = "<group>"; };
+		7BBB272C194956F400FF421A /* TXMainListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXMainListTableViewCell.m; path = ../TXMainListTableViewCell.m; sourceTree = "<group>"; };
 		7BF362391946BFB200FE539B /* PengfuProtoType.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PengfuProtoType.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF3623C1946BFB200FE539B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7BF3623E1946BFB200FE539B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -79,6 +91,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BB03A07194AA0A300F6189A /* item */ = {
+			isa = PBXGroup;
+			children = (
+				7BB03A08194AA2AC00F6189A /* TXContentData.h */,
+				7BB03A09194AA2AC00F6189A /* TXContentData.m */,
+				7B881256194B028300FB16E2 /* TXPostsData.h */,
+				7B881257194B028300FB16E2 /* TXPostsData.m */,
+			);
+			name = item;
+			sourceTree = "<group>";
+		};
 		7BF362301946BFB200FE539B = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +135,7 @@
 		7BF362421946BFB200FE539B /* PengfuProtoType */ = {
 			isa = PBXGroup;
 			children = (
+				7BB03A07194AA0A300F6189A /* item */,
 				7BF3624B1946BFB200FE539B /* TXAppDelegate.h */,
 				7BF3624C1946BFB200FE539B /* TXAppDelegate.m */,
 				7BF3624E1946BFB200FE539B /* Main.storyboard */,
@@ -119,6 +143,10 @@
 				7BF362521946BFB200FE539B /* TXViewController.m */,
 				7BF362541946BFB300FE539B /* Images.xcassets */,
 				7BF362431946BFB200FE539B /* Supporting Files */,
+				7BBB272B194956F400FF421A /* TXMainListTableViewCell.h */,
+				7BBB272C194956F400FF421A /* TXMainListTableViewCell.m */,
+				7BBB27281949543E00FF421A /* TXMainListTableViewController.h */,
+				7BBB27291949543E00FF421A /* TXMainListTableViewController.m */,
 			);
 			path = PengfuProtoType;
 			sourceTree = "<group>";
@@ -251,8 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BF3624D1946BFB200FE539B /* TXAppDelegate.m in Sources */,
+				7BBB272D194956F400FF421A /* TXMainListTableViewCell.m in Sources */,
 				7BF362491946BFB200FE539B /* main.m in Sources */,
+				7BB03A0A194AA2AC00F6189A /* TXContentData.m in Sources */,
+				7BBB272A1949543E00FF421A /* TXMainListTableViewController.m in Sources */,
 				7BF362531946BFB200FE539B /* TXViewController.m in Sources */,
+				7B881258194B028300FB16E2 /* TXPostsData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +489,7 @@
 				7BF3626D1946BFB300FE539B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BF3626E1946BFB300FE539B /* Build configuration list for PBXNativeTarget "PengfuProtoTypeTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +498,7 @@
 				7BF362701946BFB300FE539B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

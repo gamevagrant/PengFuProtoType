@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TXViewController : UIViewController
+@interface TXViewController : UIViewController <UIScrollViewDelegate>
 
 @end
