@@ -8,26 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, ContentDataType)
-{
-    TX_CONTENT_JOKE = 1,
-    TX_CONTENT_PICTURE
-};
+
 
 @protocol Iterator <NSObject>
 
 @required
 - (id)first;
 - (id)next;
-- (BOOL)isDone;
+- (BOOL)hasNext;
 - (id)currentItem;
 
 @end
 
-@interface TXContentData : NSObject <Iterator>
+@interface TXIterator : NSObject <Iterator>
 
-@property (nonatomic) ContentDataType currentItemType;
-
-- (void)addItem:(id)item type:(ContentDataType)type;
+- (id)initWithArray:(NSArray *)array;
 
 @end

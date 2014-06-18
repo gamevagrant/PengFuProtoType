@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TXPostsData.h"
+#define HeadHeight 60
+#define FootHeight 60
+#define Margins 4
 
 @interface TXMainListTableViewCell : UITableViewCell <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *avatar;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UIWebView *contentWebView;
 
-- (void)setCellData:(NSDictionary *)data;
+
+- (void)setCellData:(TXPostsData *)data;
 @end

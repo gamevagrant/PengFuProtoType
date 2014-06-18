@@ -8,12 +8,24 @@
 
 #import "TXMainListTableViewController.h"
 #import "TXMainListTableViewCell.h"
+#import "TXSourceManager.h"
+#import "TXPostsData.h"
+#import "TXIterator.h"
+#import "TXImage.h"
+#import "TXContentItem.h"
+
+
+#define FontSize 18
+
 
 @interface TXMainListTableViewController ()
 
 @end
 
 @implementation TXMainListTableViewController
+{
+    NSArray *dataList;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,7 +45,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    dataList = [TXSourceManager getPosterList];
 
 }
 
@@ -54,7 +66,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    return dataList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,11 +74,39 @@
     TXMainListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCell" forIndexPath:indexPath];
     // Configure the cell...
     
-    [cell setCellData:nil];
+    [cell setCellData:(TXPostsData *)dataList[indexPath.row]];
 
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TXPostsData *data = dataList[indexPath.row];
+    TXIterator *iterator = data.contentIterator;
+    CGFloat height = HeadHeight + FootHeight;
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    CGFloat width = screenSize.width - Margins * 2;
+    while (iterator.hasNext)
+    {
+        TXContentItem *content = [iterator next];
+        
+        if (content.type == TX_CONTENT_PICTURE)
+        {
+            
+            TXImage *image = content.item;
+            
+            height += width/image.size.width * image.size.height;
+        }else if(content.type == TX_CONTENT_JOKE)
+        {
+            UIFont *font = [UIFont systemFontOfSize:FontSize];
+            NSString *str = content.item;
+            CGRect strRect = [str boundingRectWithSize:CGSizeMake(width, 0) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil];
+            height += strRect.size.height;
+        }
+    }
+    [iterator first];
+    return height;
+}
 
 /*
 // Override to support conditional editing of the table view.

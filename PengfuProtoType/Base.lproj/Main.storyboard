@@ -26,12 +26,13 @@
         <scene sceneID="Yzz-WC-ww8">
             <objects>
                 <tableViewController storyboardIdentifier="MainJokeTable" id="3C0-Dx-IGC" customClass="TXMainListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="251" sectionHeaderHeight="22" sectionFooterHeight="22" id="B0X-qg-ghN">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="251" sectionHeaderHeight="22" sectionFooterHeight="22" id="B0X-qg-ghN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="20"/>
                         <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="2" reuseIdentifier="ContentCell" rowHeight="251" id="WxT-Ni-UXd" customClass="TXMainListTableViewCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="251"/>
@@ -40,31 +41,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poson" translatesAutoresizingMaskIntoConstraints="NO" id="igb-cz-8z9">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="igb-cz-8z9">
                                             <rect key="frame" x="8" y="8" width="44" height="37"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="44" id="hbK-E7-ArX"/>
-                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlJ-QD-Qlf">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="蜡笔小新" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlJ-QD-Qlf">
                                             <rect key="frame" x="60" y="16" width="253" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-mL-DWB">
-                                            <rect key="frame" x="8" y="53" width="305" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5kR-5b-XRm">
-                                            <rect key="frame" x="8" y="82" width="305" height="136"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iq-cY-4AT">
                                             <rect key="frame" x="138" y="220" width="45" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -74,20 +61,8 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="5kR-5b-XRm" firstAttribute="leading" secondItem="igb-cz-8z9" secondAttribute="leading" id="2eg-Ra-UAg"/>
-                                        <constraint firstItem="2iq-cY-4AT" firstAttribute="top" secondItem="5kR-5b-XRm" secondAttribute="bottom" constant="2" id="4k4-LU-0pp"/>
-                                        <constraint firstItem="PlJ-QD-Qlf" firstAttribute="leading" secondItem="igb-cz-8z9" secondAttribute="trailing" constant="8" symbolic="YES" id="CMX-hV-S4S"/>
-                                        <constraint firstItem="eZb-mL-DWB" firstAttribute="top" secondItem="Xud-9e-gBv" secondAttribute="top" constant="53" id="KDs-u2-lE9"/>
-                                        <constraint firstItem="5kR-5b-XRm" firstAttribute="top" secondItem="eZb-mL-DWB" secondAttribute="bottom" constant="8" id="LRZ-Ws-lPo"/>
-                                        <constraint firstItem="eZb-mL-DWB" firstAttribute="top" secondItem="igb-cz-8z9" secondAttribute="bottom" constant="8" symbolic="YES" id="OGe-tl-g4g"/>
-                                        <constraint firstItem="igb-cz-8z9" firstAttribute="centerY" secondItem="PlJ-QD-Qlf" secondAttribute="centerY" id="Tha-5I-h3n"/>
-                                        <constraint firstItem="5kR-5b-XRm" firstAttribute="leading" secondItem="Xud-9e-gBv" secondAttribute="leading" constant="8" id="V4n-qU-qvF"/>
-                                        <constraint firstItem="igb-cz-8z9" firstAttribute="top" secondItem="Xud-9e-gBv" secondAttribute="top" constant="8" id="XoA-Qt-mrM"/>
-                                        <constraint firstItem="5kR-5b-XRm" firstAttribute="trailing" secondItem="eZb-mL-DWB" secondAttribute="trailing" id="Zs1-uO-Gpl"/>
-                                        <constraint firstItem="5kR-5b-XRm" firstAttribute="centerX" secondItem="2iq-cY-4AT" secondAttribute="centerX" id="lxJ-ye-U6O"/>
-                                        <constraint firstItem="5kR-5b-XRm" firstAttribute="centerX" secondItem="Xud-9e-gBv" secondAttribute="centerX" id="rDS-WA-4ic"/>
-                                        <constraint firstAttribute="bottom" secondItem="2iq-cY-4AT" secondAttribute="bottom" id="rSl-Hs-A47"/>
-                                        <constraint firstItem="5kR-5b-XRm" firstAttribute="leading" secondItem="eZb-mL-DWB" secondAttribute="leading" id="zlJ-lM-ZHx"/>
+                                        <constraint firstItem="2iq-cY-4AT" firstAttribute="leading" secondItem="Xud-9e-gBv" secondAttribute="leading" constant="138" id="p9X-rl-8dY"/>
+                                        <constraint firstAttribute="bottom" secondItem="2iq-cY-4AT" secondAttribute="bottom" id="wto-Lu-wQn"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -152,6 +127,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="avatar" width="400" height="400"/>
         <image name="poson" width="451" height="774"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

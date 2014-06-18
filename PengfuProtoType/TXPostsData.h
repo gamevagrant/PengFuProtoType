@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class TXContentData;
+@class TXIterator;
 @protocol Iterator;
 
 
@@ -18,6 +18,8 @@
 @property (nonatomic) NSUInteger numTread;
 @property (nonatomic,strong) NSDate *date;
 
-@property (nonatomic,strong) TXContentData *content;//帖子内容
-@property (nonatomic,strong) id<Iterator> commentList;//评论列表
+@property (nonatomic,strong) TXIterator *contentIterator;//帖子内容
+@property (nonatomic,strong) NSArray *commentList;//评论列表
+
+- (void)addContentList:(NSArray *)list;
 @end

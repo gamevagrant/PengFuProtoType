@@ -7,7 +7,11 @@
 //
 
 #import "TXPostsData.h"
+#import "TXIterator.h"
 
 @implementation TXPostsData
-
+- (void)addContentList:(NSArray *)list
+{
+    self.contentIterator = [[TXIterator alloc]initWithArray:list];
+}
 @end
