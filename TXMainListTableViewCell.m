@@ -46,6 +46,7 @@
     CGFloat width = self.frame.size.width - Margins * 2;
     TXIterator *iterator = data.contentIterator;
     _uiContentList = [[NSMutableDictionary alloc]init];
+    
     CGFloat offsetY = HeadHeight;
     while (iterator.hasNext)
     {
@@ -61,7 +62,7 @@
             [_uiContentList setObject:imageView forKey:txImage.url];
             [self addSubview:imageView];
             offsetY += height + 10;
-
+            
         }else
         {
             NSString *str = content.item;
@@ -73,8 +74,40 @@
             [_uiContentList setObject:label forKey:str];
             [self addSubview:label];
         }
+        offsetY += Margins;
     }
     [iterator first];
+
+//    CGFloat offsetY = HeadHeight;
+//    while (iterator.hasNext)
+//    {
+//        TXContentItem *content = [iterator next];
+//        if (content.type == TX_CONTENT_PICTURE)
+//        {
+//            TXImage *txImage = content.item;
+//            CGFloat height = width/txImage.size.width * txImage.size.height;
+//            
+//            
+//            TXImageView *imageView = [[TXImageView alloc]initWithFrame:CGRectMake(Margins, offsetY, width, height)];
+//            imageView.image = txImage;
+//            [_uiContentList setObject:imageView forKey:txImage.url];
+//            [self addSubview:imageView];
+//            offsetY += height + 10;
+//
+//        }else
+//        {
+//            NSString *str = content.item;
+//            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(Margins, offsetY, width, 0)];
+//            label.numberOfLines = 0;
+//            label.text = str;
+//            [label sizeToFit];
+//            offsetY += label.frame.size.height;
+//            [_uiContentList setObject:label forKey:str];
+//            [self addSubview:label];
+//        }
+//        offsetY += Margins;
+//    }
+//    [iterator first];
     
 }
 

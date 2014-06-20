@@ -13,6 +13,7 @@
 @protocol Iterator <NSObject>
 
 @required
+- (NSUInteger)count;
 - (id)first;
 - (id)next;
 - (BOOL)hasNext;
@@ -23,5 +24,6 @@
 @interface TXIterator : NSObject <Iterator>
 
 - (id)initWithArray:(NSArray *)array;
+- (id)getItemWidthIndex:(NSInteger)index;
 
 @end

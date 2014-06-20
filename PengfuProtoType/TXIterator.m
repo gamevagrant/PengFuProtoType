@@ -25,7 +25,10 @@
     }
     return self;
 }
-
+- (NSUInteger)count
+{
+    return _list.count;
+}
 - (id)initWithArray:(NSArray *)array
 {
     self = [self init];
@@ -58,6 +61,10 @@
     return [_list objectAtIndex:_num];
 }
 
+- (id)getItemWidthIndex:(NSInteger)index
+{
+    return [_list objectAtIndex:index];
+}
 - (BOOL)hasNext
 {
     if (_num >= _list.count || _list[_num] == NULL)

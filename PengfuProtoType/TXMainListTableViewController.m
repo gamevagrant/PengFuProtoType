@@ -7,12 +7,18 @@
 //
 
 #import "TXMainListTableViewController.h"
-#import "TXMainListTableViewCell.h"
+#import "TXMainListTableViewCellMore.h"
+#import "TXMainListTableViewCellImage.h"
+#import "TXMainListTableViewCellText.h"
+#import "TXMainListTableViewCellComment.h"
+#import "TXMainListTableViewCellHeader.h"
+#import "TXMainListTableViewCellFooter.h"
 #import "TXSourceManager.h"
 #import "TXPostsData.h"
 #import "TXIterator.h"
 #import "TXImage.h"
 #import "TXContentItem.h"
+#import "TXDefine.h"
 
 
 #define FontSize 18
@@ -25,6 +31,9 @@
 @implementation TXMainListTableViewController
 {
     NSArray *dataList;
+    NSMutableArray *expandedIndexPaths;
+    NSInteger actionToTake;
+    BOOL enableAutoScroll;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -46,7 +55,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     dataList = [TXSourceManager getPosterList];
-
+    expandedIndexPaths = [[NSMutableArray alloc]init];
+    enableAutoScroll = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,53 +70,172 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return dataList.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return dataList.count;
+    TXPostsData *data = dataList[section];
+    TXIterator *iterator = data.contentIterator;
+    
+    return iterator.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TXMainListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCell" forIndexPath:indexPath];
-    // Configure the cell...
+    TXPostsData *postsData = dataList[indexPath.section];
+    TXIterator *iterator = postsData.contentIterator;
     
-    [cell setCellData:(TXPostsData *)dataList[indexPath.row]];
+    UITableViewCell *resultCell;
+    if(indexPath.row == iterator.count)//更多按钮
+    {
+        TXMainListTableViewCellMore *cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCellMore" forIndexPath:indexPath];
+        resultCell = cell;
+    }else
+    {
+        TXContentItem *content = [iterator getItemWidthIndex:indexPath.row];
+        if (content.type == TX_CONTENT_PICTURE)
+        {
+            TXImage *txImage = content.item;
+            TXMainListTableViewCellImage *cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCellImage" forIndexPath:indexPath];
+            cell.txImage = txImage;
+            resultCell = cell;
+            
+        }else if(content.type == TX_CONTENT_JOKE)
+        {
+            TXMainListTableViewCellText *cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCellText" forIndexPath:indexPath];
+            cell.text = content.item;
+            resultCell = cell;
+        }
+    }
+    return resultCell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    TXPostsData *postsData = dataList[section];
+    
+    TXMainListTableViewCellHeader *cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCellHeader" forIndexPath:[NSIndexPath indexPathForRow:1 inSection:section]];
+    cell.data = postsData;
 
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    TXMainListTableViewCellFooter *cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCellFooter" forIndexPath:[NSIndexPath indexPathForRow:1 inSection:section]];
+    
+    return cell;
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TXPostsData *data = dataList[indexPath.row];
+    TXPostsData *data = dataList[indexPath.section];
     TXIterator *iterator = data.contentIterator;
-    CGFloat height = HeadHeight + FootHeight;
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     CGFloat width = screenSize.width - Margins * 2;
-    while (iterator.hasNext)
+    CGFloat height = Margins * 2;
+    
+    if(indexPath.row == iterator.count)//更多按钮
     {
-        TXContentItem *content = [iterator next];
-        
+        height = 40;
+    }else
+    {
+        TXContentItem *content = [iterator getItemWidthIndex:indexPath.row];
         if (content.type == TX_CONTENT_PICTURE)
         {
             
             TXImage *image = content.item;
             
-            height += width/image.size.width * image.size.height;
+            height = width/image.size.width * image.size.height;
         }else if(content.type == TX_CONTENT_JOKE)
         {
             UIFont *font = [UIFont systemFontOfSize:FontSize];
             NSString *str = content.item;
             CGRect strRect = [str boundingRectWithSize:CGSizeMake(width, 0) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil];
-            height += strRect.size.height;
+            height = strRect.size.height;
         }
     }
-    [iterator first];
+    
+    
+    
+//    CGFloat height = HeadHeight + FootHeight;
+//    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+//    CGFloat width = screenSize.width - Margins * 2;
+//    while (iterator.hasNext)
+//    {
+//        TXContentItem *content = [iterator next];
+//        
+//        if (content.type == TX_CONTENT_PICTURE)
+//        {
+//            
+//            TXImage *image = content.item;
+//            
+//            height += width/image.size.width * image.size.height;
+//        }else if(content.type == TX_CONTENT_JOKE)
+//        {
+//            UIFont *font = [UIFont systemFontOfSize:FontSize];
+//            NSString *str = content.item;
+//            CGRect strRect = [str boundingRectWithSize:CGSizeMake(width, 0) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil];
+//            height += strRect.size.height;
+//        }
+//        height += Margins;
+//    }
+//    [iterator first];
+//    
+//    if(actionToTake == 1)
+//    {
+//        height += 100;
+//    }
+    
     return height;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 40.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    BOOL alreadyExpanded = NO;
+    NSIndexPath* correspondingIndexPath;
+    for (NSIndexPath* anIndexPath in expandedIndexPaths) {
+        if (anIndexPath.row == indexPath.row && anIndexPath.section == indexPath.section)
+        {alreadyExpanded = YES; correspondingIndexPath = anIndexPath;}
+    }
+    
+    if (alreadyExpanded)////collapse it!
+    {
+        actionToTake = -1;
+        [expandedIndexPaths removeObject:correspondingIndexPath];
+        [tableView beginUpdates];
+//        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [tableView endUpdates];
+    }
+    else ///expand it!
+    {
+        actionToTake = 1;
+        [expandedIndexPaths addObject:indexPath];
+        [tableView beginUpdates];
+//        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [tableView endUpdates];
+        if (enableAutoScroll)
+            [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    }
+//    [self.tableView beginUpdates];
+//    [self.tableView endUpdates];
+}
+
+
 
 /*
 // Override to support conditional editing of the table view.

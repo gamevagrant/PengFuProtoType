@@ -15,6 +15,7 @@
 @interface TXMainListTableViewCell : UITableViewCell <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *avatar;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UIButton *lookCommentBtn;
 
 
 - (void)setCellData:(TXPostsData *)data;
