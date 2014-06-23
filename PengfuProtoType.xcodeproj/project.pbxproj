@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B33793A19580EB20004B410 /* TXMainListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B33793919580EB20004B410 /* TXMainListTableViewCell.m */; };
 		7B881258194B028300FB16E2 /* TXPostsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B881257194B028300FB16E2 /* TXPostsData.m */; };
 		7BAC1ED5194FD9BF004EE44C /* TXContentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC1ED4194FD9BF004EE44C /* TXContentItem.m */; };
 		7BAC1ED91950416C004EE44C /* TXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC1ED81950416C004EE44C /* TXImageView.m */; };
@@ -19,7 +20,6 @@
 		7BB08313195408E700E4B795 /* TXMainListTableViewCellFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB08312195408E700E4B795 /* TXMainListTableViewCellFooter.m */; };
 		7BB1432E194EF79E00157BD3 /* TXImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1432D194EF79E00157BD3 /* TXImage.m */; };
 		7BBB272A1949543E00FF421A /* TXMainListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB27291949543E00FF421A /* TXMainListTableViewController.m */; };
-		7BBB272D194956F400FF421A /* TXMainListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB272C194956F400FF421A /* TXMainListTableViewCell.m */; };
 		7BDB639D194E91D800AE13A3 /* TXSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDB639C194E91D800AE13A3 /* TXSourceManager.m */; };
 		7BDB63A1194E96DC00AE13A3 /* PosterList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7BDB63A0194E96DC00AE13A3 /* PosterList.txt */; };
 		7BF3623D1946BFB200FE539B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF3623C1946BFB200FE539B /* Foundation.framework */; };
@@ -49,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B33793819580EB20004B410 /* TXMainListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMainListTableViewCell.h; sourceTree = "<group>"; };
+		7B33793919580EB20004B410 /* TXMainListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMainListTableViewCell.m; sourceTree = "<group>"; };
 		7B881256194B028300FB16E2 /* TXPostsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXPostsData.h; sourceTree = "<group>"; };
 		7B881257194B028300FB16E2 /* TXPostsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXPostsData.m; sourceTree = "<group>"; };
 		7BAC1ED3194FD9BF004EE44C /* TXContentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXContentItem.h; sourceTree = "<group>"; };
@@ -74,8 +76,6 @@
 		7BB1432D194EF79E00157BD3 /* TXImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXImage.m; sourceTree = "<group>"; };
 		7BBB27281949543E00FF421A /* TXMainListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMainListTableViewController.h; sourceTree = "<group>"; };
 		7BBB27291949543E00FF421A /* TXMainListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMainListTableViewController.m; sourceTree = "<group>"; };
-		7BBB272B194956F400FF421A /* TXMainListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXMainListTableViewCell.h; path = ../TXMainListTableViewCell.h; sourceTree = "<group>"; };
-		7BBB272C194956F400FF421A /* TXMainListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXMainListTableViewCell.m; path = ../TXMainListTableViewCell.m; sourceTree = "<group>"; };
 		7BDB639B194E91D800AE13A3 /* TXSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSourceManager.h; sourceTree = "<group>"; };
 		7BDB639C194E91D800AE13A3 /* TXSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSourceManager.m; sourceTree = "<group>"; };
 		7BDB63A0194E96DC00AE13A3 /* PosterList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PosterList.txt; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 		7BB082FE1953F55200E4B795 /* MainList */ = {
 			isa = PBXGroup;
 			children = (
-				7BBB272B194956F400FF421A /* TXMainListTableViewCell.h */,
-				7BBB272C194956F400FF421A /* TXMainListTableViewCell.m */,
+				7B33793819580EB20004B410 /* TXMainListTableViewCell.h */,
+				7B33793919580EB20004B410 /* TXMainListTableViewCell.m */,
 				7BBB27281949543E00FF421A /* TXMainListTableViewController.h */,
 				7BBB27291949543E00FF421A /* TXMainListTableViewController.m */,
 				7BB082FF1954083500E4B795 /* TXMainListTableViewCellImage.h */,
@@ -350,8 +350,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B33793A19580EB20004B410 /* TXMainListTableViewCell.m in Sources */,
 				7BF3624D1946BFB200FE539B /* TXAppDelegate.m in Sources */,
-				7BBB272D194956F400FF421A /* TXMainListTableViewCell.m in Sources */,
 				7BAC1ED91950416C004EE44C /* TXImageView.m in Sources */,
 				7BB08310195408CA00E4B795 /* TXMainListTableViewCellHeader.m in Sources */,
 				7BF362491946BFB200FE539B /* main.m in Sources */,
